@@ -1,0 +1,71 @@
+
+
+.category-container {
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    transition: .4s ease-in-out;
+
+
+    &:hover {
+        transform: scale(1.01);
+    }
+
+    &:active {
+        transform: scale(0.99);
+        filter: grayscale(50%);
+    }
+    // Category
+    &.MENS {
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    &.WOMENS {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    .overlay { 
+        background: linear-gradient(357.97deg, rgba(208, 208, 210, 0.45) 1.67%, rgba(208, 208, 210, 0) 90.28%);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+        height: 50%;
+    }
+
+    .background-image{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+
+    }
+
+    .category-title {
+        position: absolute;
+        background-color: #15151C;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        h2 {
+            font-family: 'Bebas Neue';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.4375rem;
+            line-height: 28px;
+            text-align: center;
+            letter-spacing: 0.05em;
+            margin: 0;
+            padding: 3px 8px;
+            color: #FBFAF6;
+        }
+    }
+}

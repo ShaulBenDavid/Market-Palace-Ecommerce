@@ -1,0 +1,86 @@
+@keyframes enterIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes enterOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.auth-container {
+    max-width: 1154px;
+    width: 80%;
+    height: 552px;
+    background: #F9F7F1;
+    box-shadow: 3px 6px 17px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    position: relative;
+    top: 180px;
+    overflow: hidden;
+    display: flex;
+
+
+    .form-cover-container {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        transition: all 0.41s linear;
+        right: 0;
+        z-index: 2;
+
+
+        & ~ .sign-up-container {
+            opacity: 0;
+            animation-duration: 0.4s;
+            animation-name: enterOut;
+        }
+
+        & ~ .sign-in-container {
+            animation-duration: 2s;
+            animation-name: enterIn;
+            opacity: 1;
+        }
+
+        &.active-cover{
+            right: 50%;
+
+            & ~ .sign-in-container {
+                animation-duration: 0.4s;
+                animation-name: enterOut;
+                opacity: 0;
+            }
+
+            & ~ .sign-up-container {
+                animation-duration: 2s;
+                animation-name: enterIn;
+                opacity: 1;
+            }
+        }
+    }
+
+    .sign-in-container {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .sign-up-container {
+        overflow: hidden;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

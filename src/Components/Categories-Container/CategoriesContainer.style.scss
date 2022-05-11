@@ -1,0 +1,15 @@
+.categories-flex{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .categories-container {
+        margin-top: 140px;
+        width: 1300px;
+        display: grid;
+        grid-template-columns: repeat( 3, minmax(250px, 1fr) );
+        grid-template-rows: 296px 296px 296px;
+        gap: 25px;
+    }
+}
