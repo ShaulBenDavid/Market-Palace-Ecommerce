@@ -2,7 +2,7 @@ import FormInput from "../FormInput/FormInput";
 import { useState } from 'react';
 import Button from "../Button/Button";
 import './SignIn.style.scss';
-import { signInWithGooglePopup, createUserDocumentFromAuth, signInUserAuthWithEmailAndPassword } from '../../Utils/FireBase/FIreBase';
+import { signInWithGooglePopup, signInUserAuthWithEmailAndPassword } from '../../Utils/FireBase/FIreBase';
 
 const defaultFormField = {
     email: '',
@@ -14,9 +14,7 @@ const SignIn = () => {
     const { email, password } = formFields;
 
     const logInWithGooglePopup = async () => {
-        const { user } = await signInWithGooglePopup();
-        const userRefDoc = await createUserDocumentFromAuth(user);
-        console.log(userRefDoc);
+        await signInWithGooglePopup();
     }
 
     const resetFormFields = () => {
@@ -26,12 +24,11 @@ const SignIn = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await signInUserAuthWithEmailAndPassword(email, password);
-            console.log(response);
+            await signInUserAuthWithEmailAndPassword(email, password);
             resetFormFields();
         } catch (err) {
             if (err.code === "auth/wrong-password" || err.code === "auth/user-not-found") {
-                console.log("Wrong Password or Email"); 
+                alert("Wrong Password or Email"); 
             }
             console.log(err);
         }

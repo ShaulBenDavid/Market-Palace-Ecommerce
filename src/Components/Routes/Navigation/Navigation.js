@@ -1,9 +1,13 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Outlet, Link } from 'react-router-dom';
+
+import { UserContext } from "../../../Context/UserContext";
+import { signOutUser } from "../../../Utils/FireBase/FIreBase";
 import { ReactComponent as MpLogo } from '../../../assets/mp-logo.svg';
 import './navigation.style.scss';
 
 const Navigation = () => {
+    const { currentUser } = useContext(UserContext);
 
     return (
         <Fragment>
@@ -19,9 +23,16 @@ const Navigation = () => {
                         <Link className="nav-link" to='/about'>
                             ABOUT
                         </Link>
-                        <Link className="nav-link" to='/auth'>
-                            SIGN IN
-                        </Link>
+
+                        {currentUser ?
+                            <span className="nav-link" to='/auth' onClick={signOutUser}>
+                                SIGN OUT
+                            </span>
+                            :
+                            <Link className="nav-link" to='/auth'>
+                                SIGN IN
+                            </Link>
+                        }
                     </div>
                 </div>
             </nav>
