@@ -1,0 +1,23 @@
+.cart-box-wrapper {
+    position: absolute;
+    width: 370px;
+    height: 500px;
+    background-color: #FBFAF6;
+    right: 57px;
+    top: 100px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: -1px 0px 4px rgba(21, 21, 28, 0.2), 4px 4px 4px rgba(21, 21, 28, 0.25);
+    
+    .cart-product-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin-bottom: 10px;
+        overflow-y: auto;
+        row-gap: 10px;
+    }
+
+}

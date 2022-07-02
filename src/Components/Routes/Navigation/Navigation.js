@@ -2,13 +2,16 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from 'react-router-dom';
 
 import { UserContext } from "../../../Context/UserContext";
+import { CartContext } from "../../../Context/CartContext";
 import { signOutUser } from "../../../Utils/FireBase/FIreBase";
 import { ReactComponent as MpLogo } from '../../../assets/mp-logo.svg';
 import CartIcon from '../../CartIcon/CartIcon';
 import './navigation.style.scss';
+import CartBox from "../../CartBox/CartBox";
 
 const Navigation = () => {
     const { currentUser } = useContext(UserContext);
+    const { cartIsOpen } = useContext(CartContext);
 
     return (
         <Fragment>
@@ -37,6 +40,7 @@ const Navigation = () => {
                         <CartIcon />
                     </div>
                 </div>
+                {cartIsOpen && <CartBox />}
             </nav>
             <Outlet/>
         </Fragment>
