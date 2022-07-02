@@ -1,8 +1,19 @@
+import React, { useContext } from "react";
+import './Shop.scss';
+
+import { ProductsContext } from "../../../Context/ProductsContext";
+import ProductCard from "../../ProductCard/ProductCard";
 
 const Shop = () => {
+    const { products } = useContext(ProductsContext);
 
     return (
-        <div>1</div>
+        <div className="shop-wrapper">
+            {products.map((item) => 
+                <ProductCard key={item.id} item={item} /> 
+                )
+            }
+        </div>
     );
 };
 

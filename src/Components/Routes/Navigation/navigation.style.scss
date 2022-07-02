@@ -7,6 +7,7 @@
     position: fixed;
     z-index: 2;
     
+    
     .nav-flex {
         height: 100%;
         // margin: 0 auto;
@@ -24,7 +25,10 @@
 // Links
 .nav-links-container {
 
-    padding-right: 15px;
+    padding-right: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .nav-link {
         font-family: 'Bebas Neue';

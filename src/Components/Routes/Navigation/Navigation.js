@@ -4,6 +4,7 @@ import { Outlet, Link } from 'react-router-dom';
 import { UserContext } from "../../../Context/UserContext";
 import { signOutUser } from "../../../Utils/FireBase/FIreBase";
 import { ReactComponent as MpLogo } from '../../../assets/mp-logo.svg';
+import CartIcon from '../../CartIcon/CartIcon';
 import './navigation.style.scss';
 
 const Navigation = () => {
@@ -33,6 +34,7 @@ const Navigation = () => {
                                 SIGN IN
                             </Link>
                         }
+                        <CartIcon />
                     </div>
                 </div>
             </nav>

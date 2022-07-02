@@ -28,6 +28,20 @@
         }
     }
 
+    &.secondary-button {
+        color: #15151C;
+        background: inherit;
+
+        &:hover, &:focus {
+            background-color: #15151C;
+            color: #FBFAF6;
+        }
+
+        &:active {
+            background-color: #5B5B60;
+        }
+    }
+
     &:hover, &:focus {
         color: #15151C;
         background: inherit;
