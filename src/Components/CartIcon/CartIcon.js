@@ -7,7 +7,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import './CartIcon.scss';
 
 const CartIcon = () => {
-    const { cartIsOpen ,setCartIsOpen } = useContext(CartContext);
+    const { cartIsOpen ,setCartIsOpen, cartQuantity } = useContext(CartContext);
 
     const handleClick = (e) => {
         setCartIsOpen(!cartIsOpen);
@@ -23,7 +23,7 @@ const CartIcon = () => {
                 className="cartIcon"
                 icon={faCartShopping}
             />
-            <span>0</span>
+            <span>{cartQuantity}</span>
         </div>
     )
 }
