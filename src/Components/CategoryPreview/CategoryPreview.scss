@@ -1,0 +1,16 @@
+.category-preview-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    h2 {
+        text-transform: capitalize;
+        color: #15151C;
+    }
+    .category-preview-products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 10px;
+    }
+}
