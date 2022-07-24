@@ -1,7 +1,7 @@
 import './Auth.style.scss';
-import SignIn from '../../SignIn/SignIn';
-import SignUp from '../../SignUp/SignUp';
-import FormCover from '../../FormCover/FormCover';
+import SignIn from '../../Components/SignIn/SignIn';
+import SignUp from '../../Components/SignUp/SignUp';
+import FormCover from '../../Components/FormCover/FormCover';
 import { useState } from 'react';
 
 const Auth = () => {

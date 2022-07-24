@@ -1,8 +1,8 @@
 import React, { useContext, useMemo } from 'react';
-import { CartContext } from '../../../Context/CartContext';
+import { CartContext } from '../../Context/CartContext';
 
-import Button from '../../Button/Button';
-import CheckoutProduct from '../../CheckoutProduct/CheckoutProduct';
+import Button from '../../Components/Button/Button';
+import CheckoutProduct from '../../Components/CheckoutProduct/CheckoutProduct';
 
 import './Checkout.scss';
 

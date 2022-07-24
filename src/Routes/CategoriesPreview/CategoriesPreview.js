@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
-import { CategoreisContext } from '../../../Context/CategoreisContext';
-import CategoryPreview from "../../CategoryPreview/CategoryPreview";
+import { CategoreisContext } from '../../Context/CategoreisContext';
+import CategoryPreview from "../../Components/CategoryPreview/CategoryPreview";
 import './CategoriesPreview.scss'
 
 const CategoriesPreview = () => {

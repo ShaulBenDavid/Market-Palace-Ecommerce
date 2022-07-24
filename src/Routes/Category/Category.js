@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { CategoreisContext } from "../../../Context/CategoreisContext";
-import ProductCard from "../../ProductCard/ProductCard";
+import { CategoreisContext } from "../../Context/CategoreisContext";
+import ProductCard from "../../Components/ProductCard/ProductCard";
 import './Category.scss';
 
 const Category = () => {
