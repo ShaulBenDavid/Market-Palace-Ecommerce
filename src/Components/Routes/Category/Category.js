@@ -15,11 +15,14 @@ const Category = () => {
 
     return (
         <div className="category-wrapper">
-            {products && 
-                products.map((product) => (
-                    <ProductCard key={product.id} item={product} />
-                ))
-            }
+            <h2>{category}</h2>
+            <div className="category-products-container">
+                {products &&
+                    products.map((product) => (
+                        <ProductCard key={product.id} item={product} />
+                    ))
+                }
+            </div>
         </div>
     );
 };
