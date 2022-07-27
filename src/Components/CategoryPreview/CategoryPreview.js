@@ -8,7 +8,7 @@ const CategoryPreview = ({ title, products }) => {
     <div className="category-preview-wrapper">
       <Link as="h2" to={title}>{title}</Link>
       <div className="category-preview-products">
-        {products
+        {products && products
           .filter((_, idx) => idx < 4)
           .map((product) => (
             <ProductCard key={product.id} item={product} />
