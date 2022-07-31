@@ -1,10 +1,10 @@
 import { Fragment, useContext } from "react";
 import { Outlet, Link } from 'react-router-dom';
 
-import { CartContext } from "../../Context/CartContext";
 import { signOutUser } from "../../Utils/FireBase/FIreBase";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../Store/User/User.selector";
+import { cartIsOpenSelector } from "../../Store/Cart/Cart.selector";
 
 import { ReactComponent as MpLogo } from '../../assets/mp-logo.svg';
 import CartIcon from '../../Components/CartIcon/CartIcon';
@@ -13,8 +13,8 @@ import CartBox from "../../Components/CartBox/CartBox";
 import './navigation.style.scss';
 
 const Navigation = () => {
-    const currentUser = useSelector(selectCurrentUser)
-    const { cartIsOpen } = useContext(CartContext);
+    const currentUser = useSelector(selectCurrentUser);
+    const cartIsOpen = useSelector(cartIsOpenSelector);
 
     return (
         <Fragment>

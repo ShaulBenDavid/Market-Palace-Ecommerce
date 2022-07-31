@@ -1,6 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { CartContext } from '../../Context/CartContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart, deleteItemToCart, removeItemToCart } from '../../Store/Cart/Cart.action';
+import { cartItemsSelector } from '../../Store/Cart/Cart.selector';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
@@ -8,26 +10,22 @@ import './CheckoutProduct.scss';
 
 const CheckoutProduct = ({ item }) => {
   const { imageUrl, name, price, quantity } = item;
+  const dispatch = useDispatch();
+  const cartItems = useSelector(cartItemsSelector);
   
-  const {
-    addItemToCart,
-    deleteItemToCart,
-    removeItemToCart
-  } = useContext(CartContext)
-
   // Increase item quantity
   const handleAdd = () => {
-    addItemToCart(item);
+    dispatch(addItemToCart(cartItems, item));
   }
 
   // Decrease item quantity
   const handleDecrease = () => {
-    removeItemToCart(item);
+    dispatch(removeItemToCart(cartItems, item));
   }
 
   // Delete item
   const handleDelete = () => {
-    deleteItemToCart(item);
+    dispatch(deleteItemToCart(cartItems, item));
   }
   
   return (

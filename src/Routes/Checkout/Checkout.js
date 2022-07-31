@@ -1,5 +1,7 @@
-import React, { useContext, useMemo } from 'react';
-import { CartContext } from '../../Context/CartContext';
+import React from 'react';
+
+import { useSelector } from 'react-redux';
+import { cartCountSelector, cartItemsSelector, cartTotalSelector } from '../../Store/Cart/Cart.selector';
 
 import Button from '../../Components/Button/Button';
 import CheckoutProduct from '../../Components/CheckoutProduct/CheckoutProduct';
@@ -7,15 +9,10 @@ import CheckoutProduct from '../../Components/CheckoutProduct/CheckoutProduct';
 import './Checkout.scss';
 
 const Checkout = () => {
+    const cartItems = useSelector(cartItemsSelector);
+    const cartQuantity = useSelector(cartCountSelector);
+    const subTotal = useSelector(cartTotalSelector);
 
-    const { cartItems, cartQuantity } = useContext(CartContext);
-
-    const subTotal = useMemo(() => {
-        return cartItems.reduce((sum, item) => (
-            sum + (item.quantity * item.price)
-        ), 0)
-
-    }, [cartItems])
 
     return (
         <div className='checkout-wrapper'>

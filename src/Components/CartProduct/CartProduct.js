@@ -1,5 +1,8 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../../Context/CartContext';
+import React from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { cartItemsSelector } from '../../Store/Cart/Cart.selector';
+import { deleteItemToCart } from '../../Store/Cart/Cart.action';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
@@ -9,10 +12,11 @@ import './CartProduct.scss';
 
 const CartProduct = ({ item }) => {
     const { imageUrl, name, price, quantity } = item;
-    const { deleteItemToCart } = useContext(CartContext);
+    const dispatch = useDispatch();
+    const cartItems = useSelector(cartItemsSelector);
 
     const handleDelete = () => {
-        deleteItemToCart(item);
+        dispatch(deleteItemToCart(cartItems, item));
     };
 
   return (
