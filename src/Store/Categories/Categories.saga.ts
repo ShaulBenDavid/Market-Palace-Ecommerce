@@ -1,4 +1,4 @@
-import { all, takeLatest, put, call } from "redux-saga/effects";
+import { all, takeLatest, put, call } from "typed-redux-saga/macro";
 
 import { getCollectionAndDocuments } from "../../Utils/FireBase/FIreBase";
 
@@ -11,20 +11,20 @@ import {
 
 export function* fetchCategoriesStart() {
   try {
-    const categoriesArray = yield call(getCollectionAndDocuments);
-    yield put(fetchCategoriesSuccess(categoriesArray));
+    const categoriesArray = yield* call(getCollectionAndDocuments);
+    yield* put(fetchCategoriesSuccess(categoriesArray));
   } catch (error) {
-    yield put(fetchCategoriesFailed(error));
+    yield* put(fetchCategoriesFailed(error as Error));
   }
 }
 
 export function* onFetchCategoriesStart() {
-  yield takeLatest(
+  yield* takeLatest(
     CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START,
     fetchCategoriesStart
   );
 }
 
 export function* categoriesSaga() {
-  yield all([call(onFetchCategoriesStart)]);
+  yield* all([call(onFetchCategoriesStart)]);
 }
