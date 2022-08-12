@@ -1,4 +1,6 @@
+// Components
 import CategoriesContainer from "../../Components/Categories-Container/CategoriesContainer";
+// Styles
 import "./Home.style.scss";
 const Home = () => {
   return (

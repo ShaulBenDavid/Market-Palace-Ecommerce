@@ -1,14 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import {
   googleLogInStart,
   emailLogInStart,
 } from "../../Store/User/User.action";
-
+// Components
 import FormInput from "../FormInput/FormInput";
 import Button from "../Button/Button";
-
+// Types
+import { AuthError, AuthErrorCodes } from "firebase/auth";
+// Styles
 import "./SignIn.style.scss";
 
 const defaultFormField = {
@@ -29,15 +31,15 @@ const SignIn = () => {
     setFormFields(defaultFormField);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       dispatch(emailLogInStart(email, password));
       resetFormFields();
     } catch (err) {
       if (
-        err.code === "auth/wrong-password" ||
-        err.code === "auth/user-not-found"
+        (err as AuthError).code === AuthErrorCodes.INVALID_PASSWORD ||
+        (err as AuthError).code === AuthErrorCodes.INVALID_EMAIL
       ) {
         alert("Wrong Password or Email");
       }
@@ -45,7 +47,7 @@ const SignIn = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
@@ -71,7 +73,7 @@ const SignIn = () => {
           value={password}
         />
         <div className="buttons-form-container">
-          <Button type="submit">Sign In</Button>
+          <Button type="submit" buttonType="base">Sign In</Button>
           <Button
             type="button"
             buttonType="google"

@@ -3,14 +3,19 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartItemsSelector } from '../../Store/Cart/Cart.selector';
 import { deleteItemToCart } from '../../Store/Cart/Cart.action';
-
+// Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
-
+// Styls
 import './CartProduct.scss';
+// Types
+import { CartItem } from '../../Store/Cart/Cart.types';
 
+type CartProductProps = {
+    item: CartItem;
+}
 
-const CartProduct = ({ item }) => {
+const CartProduct: React.FC<CartProductProps> = ({ item }) => {
     const { imageUrl, name, price, quantity } = item;
     const dispatch = useDispatch();
     const cartItems = useSelector(cartItemsSelector);

@@ -3,12 +3,18 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart, deleteItemToCart, removeItemToCart } from '../../Store/Cart/Cart.action';
 import { cartItemsSelector } from '../../Store/Cart/Cart.selector';
-
+// Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+// Styles
 import './CheckoutProduct.scss';
+// Types
+import { CartItem } from '../../Store/Cart/Cart.types';
+type CheckoutProductProps = {
+  item: CartItem;
+}
 
-const CheckoutProduct = ({ item }) => {
+const CheckoutProduct: React.FC<CheckoutProductProps> = ({ item }) => {
   const { imageUrl, name, price, quantity } = item;
   const dispatch = useDispatch();
   const cartItems = useSelector(cartItemsSelector);

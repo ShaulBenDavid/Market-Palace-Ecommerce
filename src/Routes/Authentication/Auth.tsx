@@ -1,8 +1,10 @@
-import './Auth.style.scss';
+import { useState } from 'react';
+// components
 import SignIn from '../../Components/SignIn/SignIn';
 import SignUp from '../../Components/SignUp/SignUp';
 import FormCover from '../../Components/FormCover/FormCover';
-import { useState } from 'react';
+// Styles
+import './Auth.style.scss';
 
 const Auth = () => {
     const [signType, setSignType] = useState(true);

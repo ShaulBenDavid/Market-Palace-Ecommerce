@@ -3,14 +3,14 @@ import { Routes, Route } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { checkUserSession } from './Store/User/User.action';
-
+// Components
 import Navigation from './Routes/Navigation/Navigation';
 import About from './Routes/About/About';
 import Home from './Routes/Home/Home';
 import Auth from './Routes/Authentication/Auth';
 import Shop from './Routes/Shop/Shop';
 import Checkout from './Routes/Checkout/Checkout';
-
+// Styles
 import './App.css';
 
 function App() {

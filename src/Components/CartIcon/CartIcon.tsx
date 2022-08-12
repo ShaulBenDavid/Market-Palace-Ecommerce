@@ -6,10 +6,10 @@ import {
   cartCountSelector,
   cartIsOpenSelector,
 } from "../../Store/Cart/Cart.selector";
-
+// Components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-
+// Styles
 import "./CartIcon.scss";
 
 const CartIcon = () => {
@@ -17,14 +17,13 @@ const CartIcon = () => {
   const cartIsOpen = useSelector(cartIsOpenSelector);
   const cartQuantity = useSelector(cartCountSelector);
 
-  const handleClick = (e) => {
+  const handleClick = (e : React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     dispatch(setCartIsOpen(!cartIsOpen));
   };
 
   return (
     <div className="cart-icon-container" onClick={handleClick}>
       <FontAwesomeIcon
-        alt="cart button"
         className="cartIcon"
         icon={faCartShopping}
       />

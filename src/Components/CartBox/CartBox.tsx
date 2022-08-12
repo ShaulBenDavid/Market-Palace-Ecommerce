@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartIsOpenSelector, cartItemsSelector } from '../../Store/Cart/Cart.selector';
 import { setCartIsOpen } from '../../Store/Cart/Cart.action';
-
+// Components
 import Button from '../Button/Button';
 import CartProduct from '../CartProduct/CartProduct';
-
+// Styles
 import './CartBox.scss';
 
 const CartBox = () => {
@@ -31,7 +31,7 @@ const CartBox = () => {
                     />
                 ))}
             </div>
-            <Button onClick={handleCheckout}>Checkout</Button>
+            <Button buttonType='base' onClick={handleCheckout}>Checkout</Button>
         </div>
     )
 };

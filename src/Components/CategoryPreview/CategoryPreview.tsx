@@ -1,12 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// Components
 import ProductCard from "../ProductCard/ProductCard";
+// Styles
 import './CategoryPreview.scss';
+// Types
+import { CategoryItem } from "../../Store/Categories/Categories.types";
+type CategoryPreviewProps = {
+  title: string;
+  products: CategoryItem[]
+}
 
-const CategoryPreview = ({ title, products }) => {
+const CategoryPreview: React.FC<CategoryPreviewProps> = ({ title, products }) => {
   return (
     <div className="category-preview-wrapper">
-      <Link as="h2" to={title}>{title}</Link>
+      <Link to={title}>{title}</Link>
       <div className="category-preview-products">
         {products && products
           .filter((_, idx) => idx < 4)
