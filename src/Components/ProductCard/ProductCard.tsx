@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
   return (
     <div className="product-card-wrapper">
-      <img src={imageUrl} alt={name} />
+      <img src={imageUrl} alt={name} className="skeleton" />
       <span className="product-name">{name}</span>
       <span className="product-price">{price}</span>
       <Button buttonType="secondary" onClick={handleAddToCart}>

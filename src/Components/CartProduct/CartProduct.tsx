@@ -30,7 +30,7 @@ const CartProduct: React.FC<CartProductProps> = ({ item }) => {
             <img
                 src={imageUrl}
                 alt={name}
-                className="img-cart-product"
+                className="img-cart-product skeleton"
             />
             
             <div className='cart-item-details'>

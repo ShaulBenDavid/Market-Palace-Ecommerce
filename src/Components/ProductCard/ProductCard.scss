@@ -1,3 +1,17 @@
+@keyframes skeleton-loading {
+    0% {
+      background-color: hsla(200, 20%, 70%, 70%);
+    }
+  
+    100% {
+      background-color: hsla(200, 20%, 95%, 70%);
+    }
+  }
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
 .product-card-wrapper {
     width: 250px;
     height: 350px;
