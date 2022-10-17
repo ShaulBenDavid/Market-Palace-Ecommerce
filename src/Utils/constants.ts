@@ -1,0 +1,1 @@
+export const MOBILE_SIZE = "800px";
